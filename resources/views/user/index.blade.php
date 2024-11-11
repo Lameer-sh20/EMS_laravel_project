@@ -2,7 +2,7 @@
 @section('content')
 
 <div class="position-relative">
-    <img src="{{ asset('uploads\img4.jpg') }}" class="img-fluid w-100" alt="Descriptive Alt Text">
+    <img src="{{ asset('uploads\img4.jpg') }}" class="img-fluid w-100" alt="No available image">
     <div class="position-absolute top-50 start-50 translate-middle text-white text-center">
         <h1 class="display-4 ">All events around Saudi</h1>
         <p class="fs-4">Discover amazing events happening in your city</p>
@@ -64,13 +64,22 @@
         </div>
     </section>
 
-    <section class="py-5" id="about">
+    <section class="py-5 my-5" id="about">
         <div>
             <p class="fs-4 fw-semibold">About Us</p>
         </div>
         <div>
-            <p class="fs-5 ">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis</p>
+            <div class="row">
+                <div class="col d-flex align-items-center">
+                    <p class="fs-5 ">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. 
+                        <br>Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis</p>
+                </div>
+                <div class="col">
+                    <img src="{{ asset('uploads\img3.jpeg') }}" class="img-fluid w-100 rounded" alt="No available image">
+                </div>
+            </div>
         </div>
     </section>
+
 </div>
 @endsection
