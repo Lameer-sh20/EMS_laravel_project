@@ -51,7 +51,15 @@
                             <a href="#" class="nav-link text-white">Contact</a>
                         </li>
                     </ul>
-                    <ul class="navbar-nav ms-auto fs-5 ">
+                    <ul class="navbar-nav ms-auto fs-5">
+                        <li class="nav-item mx-2">
+                            <a href="#" class="nav-link text-white">
+                                <i class="bi bi-bag position-relative">
+                                    <span class="bg-primary rounded-circle px-1 fs-6 position-absolute top-0">{{ Session::get('booking_count') }}
+                                    </span>
+                                </i>
+                            </a>
+                        </li>
                         <li class="nav-item mx-2">
                             <a href="#" class="nav-link text-white"><i class="bi bi-person"></i></a>
                         </li>
@@ -61,19 +69,15 @@
             </div>
         </nav>
     </header>
-    
+
     <main>
         @yield('content')
     </main>
 
-    <footer class="text-center text-lg-start text-white bg-secondary">
-        <!-- Grid container -->
-        <div class="container p-4 pb-0">
-            <!-- Section: Links -->
+    <footer class="text-center text-lg-start text-white bg-secondary fixed-bottom">
+        <div class="container p-4 pb-3">
             <section class="">
-                <!--Grid row-->
                 <div class="row">
-                    <!-- Grid column -->
                     <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
                         <h6 class="text-uppercase mb-4 font-weight-bold">
                             EMS
@@ -81,71 +85,34 @@
                         <p>
                             Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, </p>
                     </div>
-                    <!-- Grid column -->
-
                     <hr class="w-100 clearfix d-md-none" />
-
-                    <!-- Grid column -->
-                    <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
-                        <h6 class="text-uppercase mb-4 font-weight-bold">Events</h6>
-                        <p>
-                            <a class="text-white">...</a>
-                        </p>
-                        <p>
-                            <a class="text-white">...</a>
-                        </p>
-                        <p>
-                            <a class="text-white">...</a>
-                        </p>
-                    </div>
-                    <!-- Grid column -->
-
-                    <hr class="w-100 clearfix d-md-none" />
-
-                    <!-- Grid column -->
-                    <hr class="w-100 clearfix d-md-none" />
-
-                    <!-- Grid column -->
                     <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
                         <h6 class="text-uppercase mb-4 font-weight-bold">Contact</h6>
                         <p><i class="fas fa-home mr-3"></i> Jeddah, Saudi Arabia</p>
                         <p><i class="fas fa-envelope mr-3"></i> ems@email.com</p>
                         <p><i class="fas fa-phone mr-3"></i> +000 0000000</p>
                     </div>
-                    <!-- Grid column -->
-
-                    <!-- Grid column -->
+                    <hr class="w-100 clearfix d-md-none" />
                     <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
                         <h6 class="text-uppercase mb-4 font-weight-bold">Follow us</h6>
-
-                        <!-- Instagram -->
                         <a
                             class="btn btn-primary btn-floating m-1 rounded-circle"
                             style="background-color: #ac2bac"
                             href="#"
                             role="button"><i class="bi bi-instagram text-white"></i></a>
-
-                        <!-- Linkedin -->
                         <a
                             class="btn btn-primary btn-floating m-1 rounded-circle"
                             style="background-color: #0082ca"
                             href="#"><i class="bi bi-linkedin text-white"></i></a>
-
-                        <!-- X -->
                         <a
                             class="btn btn-dark btn-floating m-1 rounded-circle"
                             href="#"><i class="bi bi-twitter-x text-white"></i></a>
                     </div>
                 </div>
-                <!--Grid row-->
             </section>
-            <!-- Section: Links -->
-        </div>
-        <hr>
-        <div class="text-center pb-3">
-            <a class="text-white" href="#"></a>
         </div>
     </footer>
+    <script src="{{asset('js/script.js')}}"></script>
 </body>
 
 </html>

@@ -1,4 +1,5 @@
 @extends('layouts.UserApp')
+@section('title', 'Event in Saudi')
 @section('content')
 
 <div class="position-relative">
@@ -34,11 +35,11 @@
     <section>
         <div class="row d-flex flex-row">
             @foreach($events as $event)
-            <div class="col">
+            <div class="col-12 col-md-6 col-lg-3 mb-4">
                 <div class="card">
                     <img src="{{ asset('images/' . $event->image) }}" class="card-img-top" alt="Image not available" height="150">
                     <div class="card-title pt-2 px-2 m-0">
-                        <a href="{{route('event_details',['id'=>$event->id])}}" class="link-secondary link-underline link-underline-opacity-0 fs-5 fw-semibold">{{ $event->title }}</a>
+                        <a href="{{ route('event_details', ['id' => $event->id]) }}" class="link-secondary link-underline link-underline-opacity-0 fs-5 fw-semibold">{{ $event->title }}</a>
                     </div>
                     <div class="card-body text-secondary">
                         <div class="row">
@@ -71,8 +72,9 @@
         <div>
             <div class="row">
                 <div class="col d-flex align-items-center">
-                    <p class="fs-5 ">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. 
-                        <br>Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis</p>
+                    <p class="fs-5 ">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+                        <br>Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis
+                    </p>
                 </div>
                 <div class="col">
                     <img src="{{ asset('uploads\img3.jpeg') }}" class="img-fluid w-100 rounded" alt="No available image">

@@ -7,6 +7,8 @@ use App\Models\cities;
 use App\Models\categories;
 use App\Models\events;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Session;
+
 
 
 class UserController extends Controller
@@ -32,9 +34,9 @@ class UserController extends Controller
             ->join('cities', 'events.city_id', '=', 'cities.id')
             ->join('categories', 'events.category_id', '=', 'categories.id')
             ->select('events.*', 'cities.city_name', 'categories.category_name');
-            
+
         if (isset($request->reset)) {
-            return redirect()->route('index');
+            return redirect()->route('home');
         }
         if ($request->filled('city')) {
             $query->where('events.city_id', $request->city);
@@ -56,7 +58,23 @@ class UserController extends Controller
             ->join('categories', 'category_id', '=', 'categories.id')
             ->select('events.*', 'cities.city_name', 'categories.category_name')
             ->get();
-            $event = $event_details->where('id', $request->id)->first();
-        return view('user.event_details',['event' => $event]);
+        $event = $event_details->where('id', $request->id)->first();
+
+        return view('user.event_details', ['event' => $event]);
+    }
+
+    public function book_event(Request $request)
+    {
+        $request->validate([
+            'id' => 'required|integer|exists:events,id',
+            'ticket_count' => 'required|integer|min:1|max:5',
+            'total_price' => 'required|numeric',
+        ]);
+
+        $currentCount = Session::get('booking_count');
+        $currentCount++;
+        Session::put('booking_count', $currentCount);
+
+        return response()->json(['success' => true]);
     }
 }

@@ -88,7 +88,8 @@ class AdminController extends Controller
             ->select('events.*', 'cities.city_name', 'categories.category_name')
             ->where('events.id', $_GET['id'])
             ->first();
-        return view('admin.edit_event', ['event' => $event, 'cities' => $cities, 'categories' => $categories]);
+        return view('admin.edit_event', ['event' => $event, 'cities' => $cities, 'categories' => $categories])
+        ->with('message', "Event updated successfully");
     }
 
     public function update_event(Request $request, $id)

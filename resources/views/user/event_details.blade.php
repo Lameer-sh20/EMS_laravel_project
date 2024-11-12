@@ -1,25 +1,32 @@
 @extends('layouts.UserApp')
+@section('title', 'Event')
 @section('content')
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                ...
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+<!-- boooking modal -->
+<div class="container py-5">
+    <div class="modal fade" id="booking_modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5">Book tickets</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="ticket_count" class="form-label">Number of Tickets</label>
+                        <input type="number" id="ticket_count" class="form-control" value="0" min="0" max="5">
+                    </div>
+                    <p>Price per ticket: <span id="ticket_price">{{ $event->price }}</span> SAR</p>
+                    <p>Total Price: <span id="total_price">0</span> SAR</p>
+                    <input type="hidden" id="final_price" value="0">
+                    <input type="hidden" id="event_id" value="{{ $event->id }}">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" id="bookTickets" onclick="bookingSubmit()">Book</button>
+                </div>
             </div>
         </div>
     </div>
-</div>
-
-
-<div class="container py-5">
     <div class="card">
         <div class="card-body">
             <div class="row">
@@ -56,7 +63,7 @@
                     </div>
                     <div class="row my-2">
                         <div class="col d-grid">
-                            <button class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal">Book</button>
+                            <button class="btn btn-outline-secondary" onclick="bookinghandler()">Book</button>
                         </div>
                     </div>
                 </div>

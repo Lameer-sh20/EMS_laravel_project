@@ -17,7 +17,7 @@ return new class extends Migration
             $table->date('start_date');
             $table->date('end_date');
             $table->integer('duration');
-            $table->string('description');
+            $table->text('description');
             $table->integer('n_tickets');
             $table->string('image');
             $table->double('price');
