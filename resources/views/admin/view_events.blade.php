@@ -47,7 +47,7 @@
                 <td>{{$event->end_date}}</td>
                 <td>{{$event->n_tickets}}</td>
                 <td><a href="{{route('edit_event',['id'=>$event->id])}}"><i class="bi bi-pen"></i></a></td>
-                <td><a href="#" onclick="deleteMsg({{$event->id}})"><i class="bi bi-trash3 text-success"></i></a></td>
+                <td><a href="#" onclick="deleteMsg({{$event->id}})"><i class="bi bi-trash3 text-danger"></i></a></td>
             </tr>
             @endforeach
         </tbody>

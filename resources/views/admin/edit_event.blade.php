@@ -4,7 +4,7 @@
 @section('content')
 <div class="container py-5">
     <div class="div pb-4">
-        <h2> Add New Event
+        <h2> Edit Event
         </h2>
     </div>
     @if(session('message'))

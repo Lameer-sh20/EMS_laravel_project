@@ -25,67 +25,57 @@
 
 <body>
     <div id="app">
-        <header>
-        </header>
+        <nav class="navbar navbar-expand-md bg-dark ">
+            <div class="container-fluid">
+                <a class="navbar-brand mx-2" href="#">
+                    <i class="fs-2 bi bi-calendar2-event me-2 text-white"></i>
+                    <span class="d-none d-sm-inline text-white me-2 fs-2">EMS</span>
+                </a>
+                <button class="navbar-toggler border " type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                    <i class="bi bi-list text-white h3"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <!-- Right Side Of Navbar -->
+                    <ul class="navbar-nav ms-auto">
+                        <!-- Authentication Links -->
+                        @guest
+                        @if (Route::has('login'))
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                        </li>
+                        @endif
+
+                        @if (Route::has('register'))
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                        </li>
+                        @endif
+                        @else
+                        <li class="nav-item dropdown ">
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                <i class="bi bi-person"></i>
+                                {{ Auth::user()->name }}
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="{{ route('logout') }}"
+                                    onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                    {{ __('Logout') }}
+                                </a>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                                </form>
+                            </div>
+                        </li>
+                        @endguest
+                    </ul>
+                </div>
+            </div>
+        </nav>
         <main class="container-fluid" id="wrapper">
             <div class="row">
-                <!-- <div class="col-auto min-vh-100 bg-dark">
-                    <div class="pt-4 pb-1">
-                        <a href="" class="text-decoration-none text-white">
-                            <span class="d-none d-sm-inline text-white">side bar</span>
-                        </a>
-                    </div>
-                    <hr class="text-white">
-                    <ul class="nav nav-pills flex-column mb-auto">
-                        <li class="nav-item">
-                            <a href="" class="nav-link active">
-                                <i class="bi bi-speedometer2 me-2"></i>
-                                <span class="d-none d-sm-inline text-white">Dashboard</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#submenu2" data-bs-toggle="collapse" class="nav-link">
-                                <i class="bi bi-calendar-event me-2 text-white"></i>
-                                <span class="d-none d-sm-inline text-white">Events</span>
-                            </a>
-                            <ul class="collapse nav flex-column" id="submenu2" data-bs-parent="#menu">
-                                <li>
-                                    <a href="#" class="nav-link">
-                                        <i class="bi bi-plus-lg"></i>
-                                        <span class="d-none d-sm-inline">Add Event</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="nav-link">
-                                        <i class="bi bi-plus-lg"></i>
-                                        <span class="d-none d-sm-inline">Add Event</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="nav-item">
-                            <a href="" class="nav-link ">
-                                <i class="bi bi-speedometer2 me-2"></i>
-                                <span class="d-none d-sm-inline">Dashboard</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="" class="nav-link ">
-                                <i class="bi bi-speedometer2 me-2"></i>
-                                <span class="d-none d-sm-inline">Dashboard</span>
-                            </a>
-                        </li>
-                    </ul>
-                </div> -->
                 <div class="col-auto col-md-3 col-xl-2 bg-dark text-white">
                     <div class="d-flex flex-column text-white min-vh-100">
-                        <div class="pt-4 ps-2 d-flex justify-content-start">
-                            <a href="#" class="text-decoration-none text-white">
-                                <i class="fs-2 bi bi-calendar2-event me-2"></i>
-                                <span class="d-none d-sm-inline text-white me-2 fs-2">EMS</span>
-                            </a>
-                        </div>
-                        <hr>
                         <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-start align-items-sm-start" id="menu">
                             <li class="nav-item">
                                 <a href="#" class="nav-link align-start text-white">
@@ -118,16 +108,6 @@
                                 </a>
                             </li>
                         </ul>
-                        <hr>
-                        <div class="dropdown pb-4 pt-2 ps-3">
-                            <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="bi bi-person-circle h5 me-2"></i>
-                                <span class="d-none d-sm-inline">Admin</span>
-                            </a>
-                            <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
-                                <li><a class="dropdown-item" href="#">Sign out</a></li>
-                            </ul>
-                        </div>
                     </div>
                 </div>
                 <div class="col">

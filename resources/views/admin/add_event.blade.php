@@ -116,7 +116,7 @@
                 <div class="row py-2">
                     <div class="col">
                         <label for="event_desc" class="form-label">Description</label>
-                        <input type="text" class="form-control" name="event_desc" id="event_desc">
+                        <textarea type="text" class="form-control" name="event_desc" id="event_desc" rows="3"></textarea>
                         @error('event_desc')
                         <span class="text-danger">
                             {{ $message }}
